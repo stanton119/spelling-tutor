@@ -84,6 +84,7 @@ export const TutorProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTutorStats = () => {
   const context = useContext(TutorContext);
   if (context === undefined) {
