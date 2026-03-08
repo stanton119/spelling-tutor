@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
 import { getRandomWordForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
+import { playCorrect, playIncorrect } from '../utils/audio';
 import './Hangman.css';
 
 const MAX_WRONG = 6;
@@ -35,6 +36,7 @@ const Hangman: React.FC = () => {
     setGuessedLetters(newGuessed);
 
     if (!targetWord?.word.includes(letter)) {
+      playIncorrect();
       const newWrong = wrongGuesses + 1;
       setWrongGuesses(newWrong);
       if (newWrong >= MAX_WRONG) {
@@ -45,6 +47,7 @@ const Hangman: React.FC = () => {
         }, 3000);
       }
     } else {
+      playCorrect();
       const isWon = targetWord.word.split('').every(char => newGuessed.has(char));
       if (isWon) {
         setGameStatus('won');
