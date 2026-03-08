@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
 import { getMultipleRandomWordsForLevel, getRandomWordForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
+import { playCorrect, playIncorrect } from '../utils/audio';
 import './WordToPicture.css';
 
 const WordToPicture: React.FC = () => {
@@ -37,6 +38,12 @@ const WordToPicture: React.FC = () => {
     const isCorrect = word.id === targetWord?.id;
     setFeedback(isCorrect ? 'correct' : 'incorrect');
     setIsProcessing(true);
+
+    if (isCorrect) {
+      playCorrect();
+    } else {
+      playIncorrect();
+    }
     
     setTimeout(() => {
       updateStats('wordToPicture', isCorrect);
