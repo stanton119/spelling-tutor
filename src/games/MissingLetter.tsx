@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
 import { getRandomWordForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
+import { playCorrect, playIncorrect } from '../utils/audio';
 import './MissingLetter.css';
 
 const MissingLetter: React.FC = () => {
@@ -47,6 +48,12 @@ const MissingLetter: React.FC = () => {
     const isCorrect = letter === targetWord?.word[missingIndex];
     setFeedback(isCorrect ? 'correct' : 'incorrect');
     setIsProcessing(true);
+
+    if (isCorrect) {
+      playCorrect();
+    } else {
+      playIncorrect();
+    }
     
     setTimeout(() => {
       updateStats('missingLetter', isCorrect);
