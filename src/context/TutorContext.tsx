@@ -53,7 +53,7 @@ export const TutorProvider: React.FC<{ children: ReactNode }> = ({ children }) =
       // Level up every 5 correct answers in a row, or something similar
       let newLevel = gameStats.level;
       if (correct && newStreak > 0 && newStreak % 5 === 0) {
-        newLevel = Math.min(newLevel + 1, 5);
+        newLevel = Math.min(newLevel + 1, 6);
       }
 
       const newHighScore = Math.max(gameStats.highScore, newStreak);
