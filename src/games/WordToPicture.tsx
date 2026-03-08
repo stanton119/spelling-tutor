@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
 import { getMultipleRandomWordsForLevel, getRandomWordForLevel } from '../utils/wordSelector';
-import { Word } from '../data/words';
+import { type Word } from '../data/words';
 import './WordToPicture.css';
 
 const WordToPicture: React.FC = () => {

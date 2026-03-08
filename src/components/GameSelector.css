@@ -1,0 +1,43 @@
+.game-selector {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.selector-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 3px solid #4caf50;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 120px;
+  box-shadow: 0 4px 0 #388e3c;
+}
+
+.selector-button:hover {
+  transform: translateY(-2px);
+  background-color: #f1f8e9;
+}
+
+.selector-button.active {
+  background-color: #4caf50;
+  color: #fff;
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.game-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.game-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}

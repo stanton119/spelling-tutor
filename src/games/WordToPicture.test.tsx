@@ -1,8 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import WordToPicture from './WordToPicture';
 import { TutorProvider } from '../context/TutorContext';
-import { describe, test, expect, vi } from 'vitest';
-import React from 'react';
+import { describe, test, expect } from 'vitest';
 
 describe('WordToPicture Game', () => {
   test('renders a word and four images', () => {

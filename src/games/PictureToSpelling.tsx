@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
 import { getRandomWordForLevel } from '../utils/wordSelector';
 import { generateDistractors } from '../utils/spellingDistractors';
-import { Word } from '../data/words';
+import { type Word } from '../data/words';
 import './PictureToSpelling.css';
 
 const PictureToSpelling: React.FC = () => {

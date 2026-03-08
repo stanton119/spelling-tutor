@@ -1,4 +1,4 @@
-import { words, Word } from '../data/words';
+import { words, type Word } from '../data/words';
 
 export const getWordsForLevel = (level: number): Word[] => {
   return words.filter(word => word.level === level);
