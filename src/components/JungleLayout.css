@@ -1,27 +1,41 @@
 .jungle-layout {
   min-height: 100vh;
-  background-color: #e8f5e9;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 20%);
+  background-color: var(--color-blue-sky);
   display: flex;
   flex-direction: column;
 }
 
 .jungle-header {
-  background-color: #2e7d32;
-  color: #fff;
-  padding: 15px 30px;
+  background-color: var(--color-green-base);
+  color: var(--color-white);
+  padding: 20px 40px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 0 var(--color-green-dark);
+}
+
+.jungle-header::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--color-green-base);
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 40%,
+    97% 45%, 94% 40%, 91% 45%, 88% 40%, 85% 45%, 82% 40%, 79% 45%, 76% 40%, 73% 45%, 70% 40%, 67% 45%, 64% 40%, 61% 45%, 58% 40%, 55% 45%, 52% 40%, 49% 45%, 46% 40%, 43% 45%, 40% 40%, 37% 45%, 34% 40%, 31% 45%, 28% 40%, 25% 45%, 22% 40%, 19% 45%, 16% 40%, 13% 45%, 10% 40%, 7% 45%, 4% 40%, 0% 45%
+  );
+  filter: drop-shadow(0 4px 0 var(--color-green-dark));
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 0px #1b5e20;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  text-shadow: 4px 4px 0px var(--color-green-dark);
 }
 
 .user-stats {
@@ -31,12 +45,13 @@
 }
 
 .stat-pill {
-  background-color: #ffca28;
+  font-family: var(--font-display);
+  background-color: var(--color-yellow-sun);
   color: #333;
-  padding: 5px 15px;
+  padding: 8px 20px;
   border-radius: 20px;
   font-weight: bold;
-  box-shadow: 0 2px 0 #f57f17;
+  box-shadow: 4px 4px 0px #f57f17;
 }
 
 .reset-btn {
@@ -44,9 +59,10 @@
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .game-area {
@@ -67,27 +83,27 @@
 }
 
 .bubble {
-  background: #fff;
-  border: 3px solid #2e7d32;
-  padding: 10px 15px;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #2e7d32;
+  background: var(--color-white);
+  border: 4px solid var(--color-green-dark);
+  padding: 12px 20px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  color: var(--color-green-dark);
   position: relative;
-  max-width: 150px;
+  max-width: 180px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-paper-lift);
 }
 
 .bubble::after {
   content: '';
   position: absolute;
-  bottom: -15px;
-  right: 20px;
-  border-width: 15px 0 0 15px;
+  bottom: -18px;
+  right: 25px;
+  border-width: 18px 0 0 18px;
   border-style: solid;
-  border-color: #2e7d32 transparent transparent transparent;
+  border-color: var(--color-green-dark) transparent transparent transparent;
 }
 
 .parrot {
