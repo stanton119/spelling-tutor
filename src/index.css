@@ -1,11 +1,24 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-green-base: #4CAF50;
+  --color-green-dark: #2E7D32;
+  --color-yellow-sun: #FFD54F;
+  --color-blue-sky: #E3F2FD;
+  --color-brown-earth: #795548;
+  --color-white: #FFFFFF;
+  
+  --shadow-paper-edge: 4px 4px 0px var(--color-green-dark);
+  --shadow-paper-lift: 8px 8px 15px rgba(0, 0, 0, 0.1);
+  --shadow-inset: inset 4px 4px 10px rgba(0, 0, 0, 0.1);
+  
+  --font-display: 'Fredoka One', cursive;
+  --font-body: 'Quicksand', sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 500;
+
+  color: #213547;
+  background-color: var(--color-blue-sky);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,6 +41,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-blue-sky);
 }
 
 h1 {
