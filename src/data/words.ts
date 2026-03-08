@@ -134,7 +134,7 @@ export const words: Word[] = [
   { id: '4-29', word: 'DOCTOR', image: '🧑‍⚕️', level: 4 },
   { id: '4-30', word: 'GARDEN', image: '🏡', level: 4 },
 
-  // Level 5: 7+ letters
+  // Level 5: 7-8 letters
   { id: '5-1', word: 'ELEPHANT', image: '🐘', level: 5 },
   { id: '5-2', word: 'DINOSAUR', image: '🦖', level: 5 },
   { id: '5-3', word: 'COMPUTER', image: '💻', level: 5 },
@@ -145,4 +145,24 @@ export const words: Word[] = [
   { id: '5-8', word: 'UMBRELLA', image: '☂️', level: 5 },
   { id: '5-9', word: 'BACKPACK', image: '🎒', level: 5 },
   { id: '5-10', word: 'PENGUIN', image: '🐧', level: 5 },
+  { id: '5-11', word: 'KITCHEN', image: '🍳', level: 5 },
+  { id: '5-12', word: 'POPCORN', image: '🍿', level: 5 },
+  { id: '5-13', word: 'PANTHER', image: '🐆', level: 5 },
+  { id: '5-14', word: 'VOLCANO', image: '🌋', level: 5 },
+  { id: '5-15', word: 'EXPLORER', image: '🤠', level: 5 },
+  { id: '5-16', word: 'LANTERN', image: '🏮', level: 5 },
+  { id: '5-17', word: 'GIRAFFE', image: '🦒', level: 5 },
+  { id: '5-18', word: 'OCTOPUS', image: '🐙', level: 5 },
+  { id: '5-19', word: 'SANDWICH', image: '🥪', level: 5 },
+  { id: '5-20', word: 'SQUIRREL', image: '🐿️', level: 5 },
+  { id: '5-21', word: 'TREASURE', image: '💰', level: 5 },
+  { id: '5-22', word: 'WHISTLE', image: ' whistle', level: 5 },
+  { id: '5-23', word: 'MUSHROOM', image: '🍄', level: 5 },
+  { id: '5-24', word: 'SCISSORS', image: '✂️', level: 5 },
+  { id: '5-25', word: 'SKELETON', image: '💀', level: 5 },
+  { id: '5-26', word: 'SNOWMAN', image: '☃️', level: 5 },
+  { id: '5-27', word: 'SPARROW', image: '🐦', level: 5 },
+  { id: '5-28', word: 'STADIUM', image: '🏟️', level: 5 },
+  { id: '5-29', word: 'TRUMPET', image: '🎺', level: 5 },
+  { id: '5-30', word: 'UNICORN', image: '🦄', level: 5 },
 ];
