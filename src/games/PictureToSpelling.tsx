@@ -3,6 +3,7 @@ import { useTutorStats } from '../context/TutorContext';
 import { getRandomWordForLevel } from '../utils/wordSelector';
 import { generateDistractors } from '../utils/spellingDistractors';
 import { type Word } from '../data/words';
+import { playCorrect, playIncorrect } from '../utils/audio';
 import './PictureToSpelling.css';
 
 const PictureToSpelling: React.FC = () => {
@@ -36,6 +37,12 @@ const PictureToSpelling: React.FC = () => {
     const isCorrect = word === targetWord?.word;
     setFeedback(isCorrect ? 'correct' : 'incorrect');
     setIsProcessing(true);
+
+    if (isCorrect) {
+      playCorrect();
+    } else {
+      playIncorrect();
+    }
     
     setTimeout(() => {
       updateStats('pictureToSpelling', isCorrect);
