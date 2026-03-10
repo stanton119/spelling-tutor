@@ -20,6 +20,14 @@
   animation: slide-up 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
+@media (max-width: 768px) {
+  .game-wrapper {
+    max-width: 100%;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
 @keyframes slide-up {
   0% {
     transform: translateY(100px);

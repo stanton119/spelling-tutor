@@ -86,6 +86,20 @@
   z-index: 2;
 }
 
+@media (max-width: 768px) {
+  .foliage, .parrot-mascot {
+    display: none;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .game-area {
+    padding: 40px 10px 20px; /* Reduced top padding */
+  }
+}
+
 .parrot-mascot {
   position: fixed;
   bottom: 0px;
