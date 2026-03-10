@@ -8,10 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 500px;
+  min-height: min(70vh, 500px); /* Responsive min-height */
   background-color: var(--color-white);
   border-radius: 30px;
-  padding: 40px;
+  padding: clamp(15px, 5%, 40px); /* Fluid padding */
   box-shadow: var(--shadow-inset), var(--shadow-paper-lift);
   margin: 0 auto;
   max-width: 900px;
