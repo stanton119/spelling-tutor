@@ -58,8 +58,14 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  min-height: 44px; /* Ensure accessible touch target */
+  transition: transform 0.1s, border-color 0.25s;
 }
+
+button:active {
+  transform: scale(0.96); /* Instant touch feedback */
+}
+
 button:hover {
   border-color: #646cff;
 }
