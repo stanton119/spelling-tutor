@@ -18,12 +18,25 @@ It should not ask questions considered too easy or too hard.
 Do not consider the UI too much yet. We will do that later.
 
 ---
-use superpowers and executing-plans to implement docs/plans/2025-03-08-spelling-tutor-implementation.md                                                                                                                      
-do not use git worktrees, use just the main branch    
-
----
-use the frontend-design skill
-jungle theme
+use superpowers and executing-plans to do docs/plans/2025-03-10-lowercase-text-implementation.md
+do not use git worktrees, use just the main branch
 
 ---
 replace the README.md
+---
+make the screen size a bit smaller so it fits on web without scrolling (13" MBP)
+make it mobile compatible
+---
+some way to set the current level
+some children will be on level 5 already, how to set that
+---
+word issues:
+TOY = bear?
+TOP = TOP
+JAM = honey?
+---
+questions cant repeat back to back
+---
+delay after wrong answer
+---
+slightly longer delay after answer before moving on

@@ -34,7 +34,6 @@
   transition: all 0.2s;
   box-shadow: 0 6px 0 #f9a825;
   color: var(--color-brown-earth);
-  text-transform: uppercase;
 }
 
 .spelling-button:hover:not(:disabled) {

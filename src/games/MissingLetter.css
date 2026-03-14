@@ -30,7 +30,6 @@
   background-color: var(--color-white);
   border-bottom: 6px solid var(--color-brown-earth);
   color: var(--color-brown-earth);
-  text-transform: uppercase;
 }
 
 .letter-box.missing {

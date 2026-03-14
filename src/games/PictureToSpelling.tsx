@@ -78,7 +78,7 @@ const PictureToSpelling: React.FC = () => {
 
       {feedback && (
         <div className={`feedback-overlay ${feedback}`}>
-          {feedback === 'correct' ? '🦁 GRRR-EAT! 🦁' : '🎋 TRY AGAIN! 🎋'}
+          {feedback === 'correct' ? '🦁 Grrr-eat! 🦁' : '🎋 Try again! 🎋'}
         </div>
       )}
       

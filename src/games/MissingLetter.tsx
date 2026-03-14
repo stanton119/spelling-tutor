@@ -23,7 +23,7 @@ const MissingLetter: React.FC = () => {
     // Generate 2 random letters as distractors
     const distractors: string[] = [];
     while (distractors.length < 2) {
-      const char = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+      const char = String.fromCharCode(97 + Math.floor(Math.random() * 26));
       if (char !== correctLetter && !distractors.includes(char)) {
         distractors.push(char);
       }
@@ -97,7 +97,7 @@ const MissingLetter: React.FC = () => {
 
       {feedback && (
         <div className={`feedback-overlay ${feedback}`}>
-          {feedback === 'correct' ? '🦜 POLY-TASTIC! 🦜' : '🥥 TRY AGAIN! 🥥'}
+          {feedback === 'correct' ? '🦜 Poly-tastic! 🦜' : '🥥 Try again! 🥥'}
         </div>
       )}
       

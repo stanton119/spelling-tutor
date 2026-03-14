@@ -6,7 +6,7 @@ import { playCorrect, playIncorrect } from '../utils/audio';
 import './Hangman.css';
 
 const MAX_WRONG = 6;
-const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 const Hangman: React.FC = () => {
   const { stats, updateStats } = useTutorStats();
@@ -102,7 +102,7 @@ const Hangman: React.FC = () => {
 
       {gameStatus !== 'playing' && (
         <div className={`feedback-overlay ${gameStatus}`}>
-          {gameStatus === 'won' ? '🍌 BANANA-TASTIC! 🍌' : `🎋 OH NO! IT WAS ${targetWord.word} 🎋`}
+          {gameStatus === 'won' ? '🍌 Banana-tastic! 🍌' : `🎋 Oh no! It was ${targetWord.word} 🎋`}
         </div>
       )}
 

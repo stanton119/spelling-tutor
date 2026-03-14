@@ -79,7 +79,7 @@ const WordToPicture: React.FC = () => {
 
       {feedback && (
         <div data-testid="feedback" className={`feedback-overlay ${feedback}`}>
-          {feedback === 'correct' ? '🌟 AWESOME! 🌟' : '🍃 TRY AGAIN! 🍃'}
+          {feedback === 'correct' ? '🌟 Awesome! 🌟' : '🍃 Try again! 🍃'}
         </div>
       )}
       
