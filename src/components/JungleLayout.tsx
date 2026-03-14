@@ -54,11 +54,6 @@ const JungleLayout: React.FC<JungleLayoutProps> = ({ children }) => {
         {children}
       </main>
 
-      <div className="parrot-mascot">
-        <div className="bubble">Keep going! You're doing great!</div>
-        <span className="parrot" style={{ transform: `translateY(${mousePos.y * 0.1}px) rotate(${mousePos.x * 0.2}deg)` }}>🦜</span>
-      </div>
-
       <footer className="vines-footer">
         <div className="vine">🌿</div>
         <div className="vine">🌿</div>
