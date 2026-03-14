@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
-import { getRandomWordForLevel } from '../utils/wordSelector';
+import { getWordsForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
 import { playCorrect, playIncorrect } from '../utils/audio';
 import './Hangman.css';
@@ -13,13 +13,22 @@ const Hangman: React.FC = () => {
   const currentLevel = stats.games.hangman.level;
   
   const [targetWord, setTargetWord] = useState<Word | null>(null);
+  const [lastWordId, setLastWordId] = useState<string | null>(null);
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
   const [wrongGuesses, setWrongGuesses] = useState(0);
   const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
 
   const setupRound = () => {
-    const target = getRandomWordForLevel(currentLevel);
+    const availableWords = getWordsForLevel(currentLevel);
+    const filteredWords = availableWords.length > 1 
+      ? availableWords.filter(w => w.id !== lastWordId)
+      : availableWords;
+
+    const randomIndex = Math.floor(Math.random() * filteredWords.length);
+    const target = filteredWords[randomIndex];
+    
     setTargetWord(target);
+    setLastWordId(target.id);
     setGuessedLetters(new Set());
     setWrongGuesses(0);
     setGameStatus('playing');
@@ -68,6 +77,9 @@ const Hangman: React.FC = () => {
 
   return (
     <div className="game-container hangman">
+      {/* Hidden for tests but available in DOM */}
+      <span data-testid="target-word" style={{ display: 'none' }}>{targetWord.word}</span>
+      
       <div className="bridge-visual">
         <div className="river">🐊</div>
         <div className="bridge">
@@ -83,7 +95,7 @@ const Hangman: React.FC = () => {
         <div className="character">🐒</div>
       </div>
 
-      <div className="word-slots">
+      <div className="word-slots" data-testid="word-slots">
         {displayWord}
       </div>
 

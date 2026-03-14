@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
-import { getMultipleRandomWordsForLevel, getRandomWordForLevel } from '../utils/wordSelector';
+import { getMultipleRandomWordsForLevel, getWordsForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
 import { playCorrect, playIncorrect } from '../utils/audio';
 import './WordToPicture.css';
@@ -10,12 +10,20 @@ const WordToPicture: React.FC = () => {
   const currentLevel = stats.games.wordToPicture.level;
   
   const [targetWord, setTargetWord] = useState<Word | null>(null);
+  const [lastWordId, setLastWordId] = useState<string | null>(null);
   const [options, setOptions] = useState<Word[]>([]);
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
   const setupRound = () => {
-    const target = getRandomWordForLevel(currentLevel);
+    const availableWords = getWordsForLevel(currentLevel);
+    const filteredWords = availableWords.length > 1 
+      ? availableWords.filter(w => w.id !== lastWordId)
+      : availableWords;
+
+    const randomIndex = Math.floor(Math.random() * filteredWords.length);
+    const target = filteredWords[randomIndex];
+    
     const others = getMultipleRandomWordsForLevel(currentLevel, 4)
       .filter(w => w.id !== target.id)
       .slice(0, 3);
@@ -23,6 +31,7 @@ const WordToPicture: React.FC = () => {
     const allOptions = [...others, target].sort(() => 0.5 - Math.random());
     
     setTargetWord(target);
+    setLastWordId(target.id);
     setOptions(allOptions);
     setFeedback(null);
     setIsProcessing(false);
@@ -68,6 +77,7 @@ const WordToPicture: React.FC = () => {
         {options.map((option) => (
           <button
             key={option.id}
+            aria-label={option.word}
             className={`option-button ${feedback && option.id === targetWord.id ? 'highlight-correct' : ''} ${feedback === 'incorrect' && option.id !== targetWord.id ? 'dim' : ''}`}
             onClick={() => handleOptionClick(option)}
             disabled={isProcessing}

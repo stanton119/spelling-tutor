@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTutorStats } from '../context/TutorContext';
-import { getRandomWordForLevel } from '../utils/wordSelector';
+import { getWordsForLevel } from '../utils/wordSelector';
 import { type Word } from '../data/words';
 import { playCorrect, playIncorrect } from '../utils/audio';
 import './MissingLetter.css';
@@ -10,13 +10,20 @@ const MissingLetter: React.FC = () => {
   const currentLevel = stats.games.missingLetter.level;
   
   const [targetWord, setTargetWord] = useState<Word | null>(null);
+  const [lastWordId, setLastWordId] = useState<string | null>(null);
   const [missingIndex, setMissingIndex] = useState(-1);
   const [options, setOptions] = useState<string[]>([]);
   const [feedback, setFeedback] = useState<'correct' | 'incorrect' | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
   const setupRound = () => {
-    const target = getRandomWordForLevel(currentLevel);
+    const availableWords = getWordsForLevel(currentLevel);
+    const filteredWords = availableWords.length > 1 
+      ? availableWords.filter(w => w.id !== lastWordId)
+      : availableWords;
+
+    const randomIndex = Math.floor(Math.random() * filteredWords.length);
+    const target = filteredWords[randomIndex];
     const index = Math.floor(Math.random() * target.word.length);
     const correctLetter = target.word[index];
     
@@ -32,6 +39,7 @@ const MissingLetter: React.FC = () => {
     const allOptions = [...distractors, correctLetter].sort(() => 0.5 - Math.random());
     
     setTargetWord(target);
+    setLastWordId(target.id);
     setMissingIndex(index);
     setOptions(allOptions);
     setFeedback(null);
@@ -71,7 +79,7 @@ const MissingLetter: React.FC = () => {
   return (
     <div className="game-container missing-letter">
       <div className="image-preview">
-        <span className="emoji-large">{targetWord.image}</span>
+        <span data-testid="target-image" className="emoji-large">{targetWord.image}</span>
       </div>
 
       <div className="word-display">
